@@ -1,12 +1,17 @@
 {
-    "name": "mtm/persian-date-bundle",
-    "authors": [
-        {
-            "name": "Amin Alizade",
-            "email": "motammem@gmail.com"
-        }
-    ],
-    "require": {
-        "mtm/persian-date": "1.0.2"
+  "name": "mtm/persian-date-bundle",
+  "authors": [
+    {
+      "name": "Amin Alizade",
+      "email": "motammem@gmail.com"
     }
+  ],
+  "require": {
+    "mtm/persian-date": "1.0.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mtm\\PersianDateBundle\\": "/"
+    }
+  }
 }
