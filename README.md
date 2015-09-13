@@ -6,6 +6,12 @@ Symfony2 PersianDateBundle
 composer require mtm/persian-date-bundle:1.0.1
 ```
 
+add following line to your `AppKernel.php`
+
+```php
+new Mtm\PersianDateBundle\MtmPersianDateBundle(),
+```
+
 ### Usage:
 
 #### Form Type:
