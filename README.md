@@ -3,7 +3,7 @@ Symfony2 PersianDateBundle
 ### Installation:
 
 ```composer
-composer require mtm/persian-date-bundle:1.0.3
+composer require mtm/persian-date-bundle:1.0.4
 ```
 
 add following line to your `AppKernel.php`
