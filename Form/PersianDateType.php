@@ -14,7 +14,7 @@ class PersianDateType extends DateType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
-        
+
         // rebuild month field
         $builder->resetViewTransformers();
         $monthOptions = $builder->get('month')->getOptions();
@@ -25,11 +25,11 @@ class PersianDateType extends DateType
 
         // rebuild year field
         $yearOptions = $builder->get('year')->getOptions();
-        $yearOptions['choices'] = $options['years'];
+        $yearOptions['choices'] = array_combine($options['years'], $options['years']);
         $yearOptions['choice_list'] = null;
         $builder->remove('year');
         $builder->add('year', 'choice', $yearOptions);
-        
+
         $builder->addViewTransformer(new DateViewTransformer());
 
     }
@@ -37,11 +37,12 @@ class PersianDateType extends DateType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         parent::setDefaultOptions($resolver);
+        $persianDate = new DateTime();
+        $currentYear = (int)$persianDate->format('Y');
         $resolver->setDefaults(array(
-            'years' => $this->getYearChoices(),
+            'years' => range($currentYear - 10, $currentYear + 10),
         ));
     }
-
 
     public function getName()
     {
@@ -66,13 +67,4 @@ class PersianDateType extends DateType
             'اسفند',
         ));
     }
-
-    private function getYearChoices()
-    {
-        $date = new DateTime();
-        $currentYear = (int)$date->format("Y");
-        $years = range($currentYear - 50, $currentYear + 50);
-        return array_combine($years, $years);
-    }
-
 }
